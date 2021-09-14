@@ -1,0 +1,20 @@
+name: notify 
+on: 
+  push: 
+      branches: 
+            - master 
+                  paths: 
+                        - 'docs/**' 
+                                - 'bin/**' 
+                  jobs: 
+                    notify: 
+                        runs-on: ubuntu-latest 
+                            steps: 
+                                  - uses: actions/checkout@v1 
+                                          - name: Send notification to Slack when master/docs has been updated 
+                                                    uses: pullreminders/slack-action@v1 
+                                                            with: 
+                                                                      # "channel"にSlackチャンネルIDを代入 
+                                                                      #           args: '{\"channel\":\"XXXXXXXX\", \"text\":\"flywheel_standardが変更されたよ\"}' 
+                                                                      #                   env: 
+                                                                      #                             SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
