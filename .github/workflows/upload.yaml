@@ -1,19 +1,20 @@
-name: Notify slack
-on:
-  push:
-    branches:
-      - main
-        paths:
-          - 'docs/**'
-          - 'bin/**'
-            jobs:
-              notify:
-                runs-on: ubuntu-latest
-                  steps:
-                    - uses: pullreminders/slack-action@master
-                      - name: Send notification to Slack when master/docs has been updated
-                          uses: pullreminders/slack-action@v1
-                            with:
-                              args: '{\"channel\":\"C02ECGB2NTV\", \"text\":\"変更！！！\"}'
-                                env:
-                                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+- name: Notify slack 
+on: 
+  push: 
+    branches: 
+      - main 
+    paths: 
+      - 'docs/**' 
+      - 'bin/**' 
+jobs: 
+  notify: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - uses: pullreminders/slack-action@master
+      - name: Send notification to Slack when master/docs has been updated 
+        uses: pullreminders/slack-action@v1 
+        with: 
+          # "channel"にSlackチャンネルIDを代入 
+          args: '{\"channel\":\"XXXXXXXX\", \"text\":\"flywheel_standardが変更されたよ\"}' 
+        env: 
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
