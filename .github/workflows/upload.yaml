@@ -5,7 +5,7 @@ on:
             - main 
                   paths: 
                         - 'docs/**' 
-                                - 'bin/**' 
+                        - 'bin/**' 
                   jobs: 
                     notify: 
                         runs-on: ubuntu-latest 
